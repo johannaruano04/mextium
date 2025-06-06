@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Mextium | Carrito de Compras</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background: #f5f5f5; }
+        .cart-header {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #fff;
+            padding: 30px 0 20px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .cart-header .logo-mex {
+            color: #007bff;
+            background: #212529;
+            padding: 0 10px;
+            border-radius: 5px 0 0 5px;
+        }
+        .cart-header .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            padding: 0 10px;
+            border-radius: 0 5px 5px 0;
+            margin-left: -5px;
+        }
+        .table thead th {
+            background: #007bff;
+            color: #fff;
+        }
+        .btn-plus, .btn-minus {
+            min-width: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cart-header">
+        <span class="h1 text-uppercase logo-mex">Mex</span>
+        <span class="h1 text-uppercase logo-tium">tium</span>
+        <div class="mt-2">Carrito de Compras</div>
+    </div>
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-8 table-responsive mb-4">
+                <table class="table table-bordered table-hover text-center mb-0">
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Total</th>
+                            <th>Eliminar</th>
+                        </tr>
+                    </thead>
+                    <tbody class="align-middle" id="carrito-body">
+                        <!-- Productos del carrito se cargarán aquí -->
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-4">
+                <div class="bg-white p-4 rounded shadow-sm">
+                    <h5 class="mb-3">Resumen</h5>
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6>Subtotal</h6>
+                        <h6 id="subtotal">$0.00</h6>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">IVA (7%)</h6>
+                        <h6 class="font-weight-medium" id="iva">$0.00</h6>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="font-weight-medium">Envío</h6>
+                        <h6 class="font-weight-medium" id="envio">$50.00</h6>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2">
+                        <h5>Total</h5>
+                        <h5 id="total">$0.00</h5>
+                    </div>
+                    <!-- Reemplaza el botón de "Proceder al pago" por un enlace -->
+                    <a href="pago.html" class="btn btn-block btn-primary font-weight-bold my-3 py-3 w-100">Proceder al pago</a>
+                    <button id="vaciar-carrito" class="btn btn-outline-danger w-100 mb-2">Vaciar carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center py-3 mt-4" style="background:#ffc107; color:#212529;">
+        &copy; 2025 Mextium. Todos los derechos reservados.
+    </footer>
+    <script>
+        // Ejemplo de productos en el carrito (puedes reemplazar por datos reales)
+        let productos = JSON.parse(localStorage.getItem('carrito')) || [];
+        const costoEnvio = 50; // Puedes cambiar el costo fijo aquí
+
+        function renderCarrito() {
+            const tbody = document.getElementById('carrito-body');
+            tbody.innerHTML = "";
+            productos.forEach((prod, idx) => {
+                const total = prod.precio * prod.cantidad;
+                tbody.innerHTML += `
+                    <tr>
+                        <td class="align-middle"><img src="${prod.img}" alt="" style="width: 50px;"> ${prod.nombre}</td>
+                        <td class="align-middle">$${prod.precio.toFixed(2)}</td>
+                        <td class="align-middle">
+                            <div class="input-group quantity mx-auto" style="width: 100px;">
+                                <button class="btn btn-sm btn-primary btn-minus" data-idx="${idx}"><i class="fa fa-minus"></i></button>
+                                <input type="text" class="form-control form-control-sm bg-secondary border-0 text-center" value="${prod.cantidad}" readonly>
+                                <button class="btn btn-sm btn-primary btn-plus" data-idx="${idx}"><i class="fa fa-plus"></i></button>
+                            </div>
+                        </td>
+                        <td class="align-middle">$${total.toFixed(2)}</td>
+                        <td class="align-middle"><button class="btn btn-sm btn-danger btn-eliminar" data-idx="${idx}"><i class="fa fa-times"></i></button></td>
+                    </tr>
+                `;
+            });
+            asignarEventos();
+            actualizarTotales();
+        }
+
+        function actualizarTotales() {
+            let subtotal = 0;
+            productos.forEach(prod => {
+                subtotal += prod.precio * prod.cantidad;
+            });
+
+            document.getElementById('subtotal').textContent = '$' + subtotal.toFixed(2);
+            const iva = subtotal * 0.07;
+            document.getElementById('iva').textContent = '$' + iva.toFixed(2);
+
+            // Si no hay productos, el envío es $0.00; si hay, es el costo normal
+            let envio = productos.length === 0 ? 0 : costoEnvio;
+            document.getElementById('envio').textContent = '$' + envio.toFixed(2);
+
+            document.getElementById('total').textContent = '$' + (subtotal + iva + envio).toFixed(2);
+        }
+
+        // Función para vaciar el carrito
+        function vaciarCarrito() {
+            if (productos.length === 0) {
+                alert("El carrito ya está vacío.");
+                return;
+            }
+            if (confirm("¿Seguro que deseas vaciar todo el carrito?")) {
+                productos = [];
+                renderCarrito();
+            }
+        }
+
+        // Asigna el evento al botón después de renderizar el carrito
+        function asignarEventos() {
+            document.querySelectorAll('.btn-plus').forEach(btn => {
+                btn.onclick = function() {
+                    const idx = this.dataset.idx;
+                    productos[idx].cantidad++;
+                    renderCarrito();
+                };
+            });
+            document.querySelectorAll('.btn-minus').forEach(btn => {
+                btn.onclick = function() {
+                    const idx = this.dataset.idx;
+                    if (productos[idx].cantidad > 1) {
+                        productos[idx].cantidad--;
+                        renderCarrito();
+                    }
+                };
+            });
+            document.querySelectorAll('.btn-eliminar').forEach(btn => {
+                btn.onclick = function() {
+                    const idx = this.dataset.idx;
+                    if (confirm("¿Seguro que deseas eliminar este producto del carrito?")) {
+                        productos.splice(idx, 1);
+                        renderCarrito();
+                    }
+                };
+            });
+            // Evento para vaciar carrito
+            const btnVaciar = document.getElementById('vaciar-carrito');
+            if (btnVaciar) {
+                btnVaciar.onclick = vaciarCarrito;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCarrito);
+    </script>
+</body>
+</html>

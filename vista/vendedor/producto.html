@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestión de Productos | Mextium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap CSS y FontAwesome -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .mextium-header {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #fff;
+            padding: 30px 0 20px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .mextium-header .logo-mex {
+            color: #007bff;
+            background: #212529;
+            padding: 0 10px;
+            border-radius: 5px 0 0 5px;
+        }
+        .mextium-header .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            padding: 0 10px;
+            border-radius: 0 5px 5px 0;
+            margin-left: -5px;
+        }
+        .table thead th {
+            background: #007bff;
+            color: #fff;
+        }
+        .btn-mextium {
+            background: #007bff;
+            color: #fff;
+            border: none;
+        }
+        .btn-mextium:hover {
+            background: #ffc107;
+            color: #212529;
+        }
+        .product-img-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="mextium-header">
+        <span class="h1 text-uppercase logo-mex">Mex</span>
+        <span class="h1 text-uppercase logo-tium">tium</span>
+        <div class="mt-2">Gestión de Productos</div>
+    </div>
+    <div class="container mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="mb-0">Tus Productos</h3>
+            <button class="btn btn-mextium" data-toggle="modal" data-target="#modalProducto">
+                <i class="fas fa-plus"></i> Agregar Producto
+            </button>
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aquí NO debe haber productos de ejemplo -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal para agregar/editar producto -->
+    <div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="modalProductoLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="modalProductoLabel">Agregar Producto</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group text-center">
+                  <label>Vista previa de la foto</label>
+                  <br>
+                  <img id="previewImg" src="https://via.placeholder.com/100x100.png?text=Foto" alt="Vista previa" class="product-img-thumb mb-2" style="width:100px;height:100px;">
+              </div>
+              <div class="form-group">
+                  <label>Imagen</label>
+                  <input type="file" class="form-control-file" id="inputImg" accept="image/*">
+              </div>
+              <div class="form-group">
+                  <label>Nombre del Producto</label>
+                  <input type="text" class="form-control" required>
+              </div>
+              <div class="form-group">
+                  <label>Categoría</label>
+                  <select class="form-control" required>
+                        <option>Ropa Hombre</option>
+                        <option>Ropa Mujer</option>
+                        <option>Ropa Niños</option>
+                        <option>Deportes</option>
+                        <option>Tecnología</option>
+                        <option>Electrodomésticos</option>
+                        <option>Supermercado</option>
+                        <option>Salud</option>
+                        <option>Papelería</option>
+                        <option>Hogar y Muebles</option>
+                        <option>Juegos y Juguetes</option>
+                        <option>Mascotas</option>
+                      <!-- Agrega más categorías según tu tienda -->
+                  </select>
+              </div>
+              <div class="form-group">
+                  <label>Precio</label>
+                  <input type="number" class="form-control" required>
+              </div>
+              <div class="form-group">
+                  <label>Stock</label>
+                  <input type="number" class="form-control" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-mextium">Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="text-center py-3 mt-4" style="background:#ffc107; color:#212529;">
+        &copy; 2025 Mextium. Todos los derechos reservados.
+    </footer>
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../js/producto.js"></script>
+</body>
+</html>

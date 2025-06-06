@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Pago | Mextium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f5f5f5; }
+        .pago-header {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #fff;
+            padding: 30px 0 20px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .pago-header .logo-mex {
+            color: #007bff;
+            background: #212529;
+            padding: 0 10px;
+            border-radius: 5px 0 0 5px;
+        }
+        .pago-header .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            padding: 0 10px;
+            border-radius: 0 5px 5px 0;
+            margin-left: -5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pago-header">
+        <span class="h1 text-uppercase logo-mex">Mex</span>
+        <span class="h1 text-uppercase logo-tium">tium</span>
+        <div class="mt-2">Pago</div>
+    </div>
+    <div class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-7 col-lg-6">
+                <div class="bg-white p-4 rounded shadow-sm">
+                    <h4 class="mb-4 text-center">Datos de Pago</h4>
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre en la tarjeta</label>
+                            <input type="text" class="form-control" id="nombre" placeholder="Como aparece en la tarjeta" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="numero" class="form-label">Número de tarjeta</label>
+                            <input type="text" class="form-control" id="numero" maxlength="19" placeholder="XXXX XXXX XXXX XXXX" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="expira" class="form-label">Fecha de expiración</label>
+                                <input type="text" class="form-control" id="expira" maxlength="5" placeholder="MM/AA" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="cvv" class="form-label">CVV</label>
+                                <input type="password" class="form-control" id="cvv" maxlength="4" placeholder="CVV" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="direccion" class="form-label">Dirección de facturación</label>
+                            <input type="text" class="form-control" id="direccion" placeholder="Calle, número, colonia, ciudad" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="correo" class="form-label">Correo electrónico</label>
+                            <input type="email" class="form-control" id="correo" placeholder="tucorreo@email.com" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Pagar ahora</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="text-center py-3 mt-4" style="background:#ffc107; color:#212529;">
+        &copy; 2025 Mextium. Todos los derechos reservados.
+    </footer>
+    <script src="../js/pago.js"></script>
+</body>
+</html>

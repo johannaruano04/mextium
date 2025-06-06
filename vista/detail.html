@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mextium | Detalle de Producto</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <!-- Bootstrap y fuentes -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e3f0ff 0%, #fffbe7 100%) !important;
+        }
+
+        .detalle-header {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+            color: #fff;
+            border-radius: 0 0 24px 24px;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .detalle-header .logo-mex {
+            color: #fff;
+            background: #007bff;
+            font-weight: bold;
+            font-size: 2rem;
+            border-radius: 8px 0 0 8px;
+            padding: 0 12px;
+        }
+
+        .detalle-header .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            font-weight: bold;
+            font-size: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin-left: -5px;
+            padding: 0 12px;
+        }
+
+        .detalle-header .slogan {
+            color: #fffbe7;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+
+        .detalle-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0, 123, 255, 0.10);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn-gradient-blue {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+            color: #fff;
+            border: none;
+            transition: box-shadow .2s;
+            box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08);
+        }
+
+        .btn-gradient-blue:hover {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #fff;
+        }
+
+        .badge-stock {
+            background: #ffc107;
+            color: #212529;
+            font-size: 1em;
+        }
+
+        .footer-mex {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+            color: #fff;
+            border-radius: 18px 18px 0 0;
+            margin-top: 50px;
+            padding: 30px 0 10px 0;
+        }
+
+        .footer-mex a {
+            color: #fffbe7;
+        }
+
+        .footer-mex a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Encabezado moderno -->
+    <div class="detalle-header">
+        <span class="logo-mex">Mex</span>
+        <span class="logo-tium">tium</span>
+        <div class="slogan">Detalles del producto seleccionado</div>
+    </div>
+
+    <!-- Detalle de producto -->
+    <div class="container detalle-card">
+        <div class="row align-items-center">
+            <div class="col-md-5 text-center mb-4 mb-md-0">
+                <img src="../img/agregar.gif" alt="Producto" class="img-fluid rounded shadow" style="max-height: 320px;">
+            </div>
+            <div class="col-md-7">
+                <h2 class="mb-3 text-primary fw-bold">Nombre del Producto</h2>
+                <div class="mb-2">
+                    <span class="badge badge-stock px-3 py-2">Stock: 10</span>
+                    <span class="ms-3"><i class="fa fa-star text-warning"></i> 4.5 (99 opiniones)</span>
+                </div>
+                <h3 class="fw-bold mb-3 text-success">$150.00</h3>
+                <p class="mb-4">Descripción breve del producto. Aquí puedes destacar las características principales,
+                    materiales, beneficios y cualquier información relevante para el comprador.</p>
+                <div class="mb-3">
+                    <strong class="text-dark">Tamaños:</strong>
+                    <div class="d-flex gap-2 mt-2">
+                        <span class="badge bg-secondary">XS</span>
+                        <span class="badge bg-secondary">S</span>
+                        <span class="badge bg-secondary">M</span>
+                        <span class="badge bg-secondary">L</span>
+                        <span class="badge bg-secondary">XL</span>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <strong class="text-dark">Colores:</strong>
+                    <div class="d-flex gap-2 mt-2">
+                        <span class="badge bg-dark text-white">Negro</span>
+                        <span class="badge bg-light text-dark border">Blanco</span>
+                        <span class="badge bg-danger">Rojo</span>
+                        <span class="badge bg-primary">Azul</span>
+                        <span class="badge bg-success">Verde</span>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                    <input type="number" class="form-control w-auto me-3" value="1" min="1" max="10" style="width:80px;">
+                    <button class="btn btn-gradient-blue px-4"><i class="fa fa-shopping-cart me-2"></i>Añadir al carrito
+                    </button>
+                </div>
+                <div>
+                    <strong class="text-dark me-2">Comparte:</strong>
+                    <a class="text-primary me-2" href="#"><i class="fab fa-facebook fa-lg"></i></a>
+                    <a class="text-info me-2" href="#"><i class="fab fa-twitter fa-lg"></i></a>
+                    <a class="text-danger me-2" href="#"><i class="fab fa-pinterest fa-lg"></i></a>
+                    <a class="text-dark" href="#"><i class="fab fa-whatsapp fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Productos relacionados -->
+    <div class="container my-5">
+        <h3 class="text-center mb-4 text-primary">También te puede interesar</h3>
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm">
+                    <img src="../img/agregar.gif" class="card-img-top" alt="Producto 1">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Producto Relacionado 1</h6>
+                        <p class="text-success fw-bold mb-1">$123.00</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i> Agregar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm">
+                    <img src="../img/agregar.gif" class="card-img-top" alt="Producto 2">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Producto Relacionado 2</h6>
+                        <p class="text-success fw-bold mb-1">$99.00</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i> Agregar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm">
+                    <img src="../img/agregar.gif" class="card-img-top" alt="Producto 3">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Producto Relacionado 3</h6>
+                        <p class="text-success fw-bold mb-1">$75.00</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i> Agregar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card h-100 shadow-sm">
+                    <img src="../img/agregar.gif" class="card-img-top" alt="Producto 4">
+                    <div class="card-body text-center">
+                        <h6 class="card-title">Producto Relacionado 4</h6>
+                        <p class="text-success fw-bold mb-1">$110.00</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm"><i class="fa fa-shopping-cart"></i> Agregar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer moderno -->
+    <footer class="footer-mex text-center mt-5">
+        <div class="container">
+            <div class="mb-2">
+                <a href="index.html" class="text-white me-3">Inicio</a>
+                <a href="shop.html" class="text-white me-3">Tienda</a>
+                <a href="cart.html" class="text-white me-3">Carrito</a>
+                <a href="productos/mis_productos.html" class="text-white me-3">Mis Productos</a>
+                <a href="productos/publicar_producto.html" class="text-white me-3">Publicar Producto</a>
+                <a href="vendedor/indextienda.html" class="text-white me-3">Mi Tienda</a>
+                <a href="encabezados/acerca.html" class="text-white me-3">Acerca de</a>
+                <a href="encabezados/contactos.html" class="text-white me-3">Contactos</a>
+                <a href="encabezados/ayuda.html" class="text-white me-3">Ayuda</a>
+                <a href="encabezados/FAQs.html" class="text-white">FAQs</a>
+            </div>
+            <div>
+                &copy; 2025 <b>Mextium</b>. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Cargar productos del usuario desde localStorage (simulado)
+            let productos = JSON.parse(localStorage.getItem('misProductos') || '[]');
+            let contenedor = document.getElementById('misProductosLista');
+            if (contenedor) {
+                if (productos.length === 0) {
+                    contenedor.innerHTML = `
+                <div class="col-12">
+                    <div class="alert alert-primary text-center p-5 rounded shadow-sm">
+                        <i class="fa fa-box-open fa-2x mb-2 text-primary"></i>
+                        <h4 class="mb-2">¡Aún no tienes productos publicados!</h4>
+                        <p>Publica tu primer producto y comienza a vender en Mextium.</p>
+                        <a href="productos/publicar_producto.html" class="btn btn-gradient-blue mt-2">
+                            <i class="fa fa-plus"></i> Publicar producto
+                        </a>
+                    </div>
+                </div>
+            `;
+                } else {
+                    productos.slice(0, 4).forEach(function (prod) {
+                        contenedor.innerHTML += `
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                    <div class="card card-producto mb-4 h-100">
+                        <img class="card-img-top" src="${prod.imagen || 'img/agregar.gif'}" alt="${prod.nombre}"
+                            style="height:180px;object-fit:cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-truncate mb-1">${prod.nombre}</h6>
+                            <div class="mb-2">
+                                <span class="badge bg-primary text-white">Stock: ${prod.stock}</span>
+                            </div>
+                            <h5 class="text-primary mb-0">$${prod.precio}</h5>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="productos/editar_producto.html?id=${prod.id || ''}"
+                                class="btn btn-outline-primary btn-sm me-2">
+                                <i class="fa fa-edit"></i> Editar
+                            </a>
+                            <a href="productos/ver_producto.html?id=${prod.id || ''}" class="btn btn-outline-primary btn-sm">
+                                <i class="fa fa-eye"></i> Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                `;
+                    });
+                }
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obtiene el nombre del producto de la URL
+            const params = new URLSearchParams(window.location.search);
+            const nombre = params.get('nombre');
+            if (nombre) {
+                // Busca el elemento donde mostrar el nombre y lo actualiza
+                const nombreElem = document.querySelector('h2.text-primary.fw-bold');
+                if (nombreElem) nombreElem.textContent = nombre;
+            }
+        });
+    </script>
+</body>
+
+</html>
+<div class="container-fluid pt-5 pb-3"
+    style="background: linear-gradient(90deg, #e3f0ff 0%, #f5faff 100%); border-radius: 18px;">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4 text-center">
+        <span class="bg-primary text-white px-4 py-2 rounded shadow">Mis Productos</span>
+    </h2>
+    <div class="row px-xl-5" id="misProductosLista">
+        <!-- Aquí se mostrarán los productos publicados por el usuario -->
+    </div>
+    <div class="row px-xl-5">
+        <div class="col-12 text-center">
+            <a href="productos/publicar_producto.html" class="btn btn-lg btn-gradient-blue mt-3 me-2">
+                <i class="fa fa-plus me-2"></i>Publicar nuevo producto
+            </a>
+            <a href="productos/mis_productos.html" class="btn btn-lg btn-outline-primary mt-3">
+                <i class="fa fa-list me-2"></i>Ver todos mis productos
+            </a>
+        </div>
+    </div>
+</div>
+<style>
+    .btn-gradient-blue {
+        background: linear-gradient(90deg, #007bff 0%, #0056b3 100%);
+        color: #fff;
+        border: none;
+        transition: box-shadow .2s;
+        box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08);
+    }
+
+    .btn-gradient-blue:hover {
+        background: linear-gradient(90deg, #0056b3 0%, #007bff 100%);
+        color: #fff;
+    }
+
+    .card-producto {
+        border: none;
+        border-radius: 14px;
+        box-shadow: 0 4px 20px rgba(0, 123, 255, 0.08);
+        transition: box-shadow .2s;
+    }
+
+    .card-producto:hover {
+        box-shadow: 0 8px 32px rgba(0, 123, 255, 0.16);
+    }
+
+    .card-producto .badge {
+        font-size: 0.85em;
+    }
+
+    .card-producto .card-footer {
+        background: #f8f9fa;
+        border-top: none;
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Cargar productos del usuario desde localStorage (simulado)
+        let productos = JSON.parse(localStorage.getItem('misProductos') || '[]');
+        let contenedor = document.getElementById('misProductosLista');
+        if (contenedor) {
+            if (productos.length === 0) {
+                contenedor.innerHTML = `
+                <div class="col-12">
+                    <div class="alert alert-primary text-center p-5 rounded shadow-sm">
+                        <i class="fa fa-box-open fa-2x mb-2 text-primary"></i>
+                        <h4 class="mb-2">¡Aún no tienes productos publicados!</h4>
+                        <p>Publica tu primer producto y comienza a vender en Mextium.</p>
+                        <a href="productos/publicar_producto.html" class="btn btn-gradient-blue mt-2">
+                            <i class="fa fa-plus"></i> Publicar producto
+                        </a>
+                    </div>
+                </div>
+            `;
+            } else {
+                productos.slice(0, 4).forEach(function (prod) {
+                    contenedor.innerHTML += `
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                    <div class="card card-producto mb-4 h-100">
+                        <img class="card-img-top" src="${prod.imagen || 'img/agregar.gif'}" alt="${prod.nombre}"
+                            style="height:180px;object-fit:cover;">
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-truncate mb-1">${prod.nombre}</h6>
+                            <div class="mb-2">
+                                <span class="badge bg-primary text-white">Stock: ${prod.stock}</span>
+                            </div>
+                            <h5 class="text-primary mb-0">$${prod.precio}</h5>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="productos/editar_producto.html?id=${prod.id || ''}"
+                                class="btn btn-outline-primary btn-sm me-2">
+                                <i class="fa fa-edit"></i> Editar
+                            </a>
+                            <a href="productos/ver_producto.html?id=${prod.id || ''}" class="btn btn-outline-primary btn-sm">
+                                <i class="fa fa-eye"></i> Ver
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                `;
+                });
+            }
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        // Obtiene el nombre del producto de la URL
+        const params = new URLSearchParams(window.location.search);
+        const nombre = params.get('nombre');
+        if (nombre) {
+            // Busca el elemento donde mostrar el nombre y lo actualiza
+            const nombreElem = document.querySelector('h2.text-primary.fw-bold');
+            if (nombreElem) nombreElem.textContent = nombre;
+        }
+    });
+</script>

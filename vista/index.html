@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mextium | Inicio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap y FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e3f0ff 0%, #fffbe7 100%) !important;
+            font-family: 'Nunito', Arial, sans-serif;
+        }
+        .main-header {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+            color: #fff;
+            border-radius: 0 0 24px 24px;
+            margin-bottom: 2rem;
+        }
+        .logo-mex {
+            color: #fff;
+            background: #007bff;
+            font-weight: bold;
+            font-size: 2rem;
+            border-radius: 8px 0 0 8px;
+            padding: 0 12px;
+        }
+        .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            font-weight: bold;
+            font-size: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin-left: -5px;
+            padding: 0 12px;
+        }
+        .section-title {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .btn-gradient-blue {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+            color: #fff;
+            border: none;
+            transition: box-shadow .2s;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+        }
+        .btn-gradient-blue:hover {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #fff;
+        }
+        .footer-mex {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+            color: #fff;
+            border-radius: 18px 18px 0 0;
+            margin-top: 50px;
+            padding: 30px 0 10px 0;
+        }
+        .footer-mex a { color: #fffbe7; }
+        .footer-mex a:hover { color: #fff; text-decoration: underline; }
+        .card-producto:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+            transform: translateY(-4px) scale(1.02);
+            transition: all .2s;
+        }
+        .promo-banner {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #212529;
+            border-radius: 12px;
+            padding: 1.5rem 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+        }
+        .testimonial {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .testimonial .fa-quote-left {
+            color: #ffc107;
+            font-size: 1.5rem;
+        }
+        .testimonial .user {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .gif-hover-zoom {
+            transition: transform 0.25s cubic-bezier(.4,2,.6,1);
+            will-change: transform;
+        }
+        .gif-hover-zoom:hover {
+            transform: scale(1.13);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado principal -->
+    <header class="main-header py-5 mb-4 position-relative">
+        <div class="d-flex justify-content-between align-items-start">
+            <div class="d-flex align-items-center">
+                <!-- Botón de menú tipo hamburguesa -->
+                <button class="btn btn-link p-0 me-3 d-flex flex-column justify-content-center align-items-center" id="menu-toggle" style="border:none;outline:none;background:transparent;">
+                    <span style="display:block;width:28px;height:4px;background:#fff;border-radius:2px;margin-bottom:5px;"></span>
+                    <span style="display:block;width:28px;height:4px;background:#fff;border-radius:2px;margin-bottom:5px;"></span>
+                    <span style="display:block;width:28px;height:4px;background:#fff;border-radius:2px;"></span>
+                </button>
+                <span class="logo-mex px-3 py-1 rounded-start">Mex</span>
+                <span class="logo-tium px-3 py-1 rounded-end">tium</span>
+            </div>
+            <!-- Barra de búsqueda entre el logo y el selector de ciudad -->
+            <form class="mx-4 flex-grow-1" style="max-width:700px; min-width:250px;" role="search">
+                <div class="input-group input-group-lg">
+                    <input type="search" class="form-control" placeholder="Buscar productos, tiendas, categorías..." aria-label="Buscar">
+                    <button class="btn btn-warning" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </form>
+            <!-- Selector de ciudad y botones de autenticación -->
+            <div class="d-flex align-items-center">
+                <div class="dropdown">
+                    <button class="btn btn-link text-white fw-bold dropdown-toggle d-flex align-items-center" type="button" id="ciudadDropdown" data-bs-toggle="dropdown" aria-expanded="false" style="font-size:1.1rem;text-decoration:none;">
+                        Bogotá D.C. <i class="fa fa-chevron-down ms-1"></i>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="ciudadDropdown">
+                        <li><a class="dropdown-item" href="#">Bogotá D.C.</a></li>
+                        <li><a class="dropdown-item" href="#">Medellín</a></li>
+                        <li><a class="dropdown-item" href="#">Cali</a></li>
+                        <li><a class="dropdown-item" href="#">Ciudad de México</a></li>
+                        <li><a class="dropdown-item" href="#">Monterrey</a></li>
+                    </ul>
+                </div>
+                <!-- Botones de autenticación -->
+                <div id="auth-buttons" class="d-flex flex-column align-items-end mt-2 ms-4">
+                    <div class="d-flex gap-2">
+                        <a href="cart.html" class="btn btn-outline-primary btn-sm">
+                            <i class="fa fa-shopping-cart"></i> Carrito
+                        </a>
+                        <a href="Usuario/ingreso.html" class="btn btn-outline-primary btn-sm">
+                            <i class="fa fa-sign-in-alt"></i> Ingreso
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nombre de usuario centrado, grande y blanco -->
+        <div id="usuario-nombre" class="text-center fw-bold" style="color: #fff; font-size: 2rem; margin-top: 1.5rem;"></div>
+    </header>
+
+    <!-- Sidebar lateral oculto -->
+    <div id="sidebar-menu" class="position-fixed top-0 start-0 h-100 bg-white shadow" style="width:320px;z-index:1050;transform:translateX(-100%);transition:transform .3s;">
+        <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
+            <h5 class="mb-0 fw-bold text-primary"><i class="fa fa-user-circle me-2"></i>Ingreso</h5>
+            <button class="btn btn-sm btn-light" id="sidebar-close" aria-label="Cerrar"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="p-4">
+            <p class="mb-4">Accede a tu cuenta para comprar, vender y ver tus pedidos.</p>
+            <a href="Usuario/ingreso.html" class="btn btn-gradient-blue w-100 mb-3">
+                <i class="fa fa-sign-in-alt me-2"></i> Iniciar sesión
+            </a>
+            <a href="Usuario/registro.html" class="btn btn-outline-primary w-100 mb-3">
+                <i class="fa fa-user-plus me-2"></i> Crear cuenta
+            </a>
+            <hr>
+            <h6 class="fw-bold text-primary mt-4">Tu cuenta</h6>
+            <div id="cuenta-info" class="mb-3">
+                <!-- Información de la cuenta del usuario (nombre, email, etc.) -->
+            </div>
+            <a href="perfil.html" class="btn btn-link text-primary w-100 text-start">
+                <i class="fa fa-user-edit me-2"></i> Editar perfil
+            </a>
+            <a href="mis_pedidos.html" class="btn btn-link text-primary w-100 text-start">
+                <i class="fa fa-box-open me-2"></i> Mis pedidos
+            </a>
+            <a href="mis_productos.html" class="btn btn-link text-primary w-100 text-start">
+                <i class="fa fa-tags me-2"></i> Mis productos
+            </a>
+            <a href="Usuario/ingreso.html" class="btn btn-danger w-100 mt-3">
+                <i class="fa fa-sign-out-alt me-2"></i> Cerrar sesión
+            </a>
+        </div>
+    </div>
+
+    <!-- Banner promocional -->
+    <div class="container">
+        <div class="promo-banner mb-4">
+            <i class="fa fa-gift me-2"></i>
+            ¡Envío gratis en compras mayores a $999! Solo por tiempo limitado.
+        </div>
+    </div>
+
+    <!-- Sección de unirse como vendedor -->
+<section class="container mb-5">
+    <h2 class="section-title text-center mb-4">ÚNETE</h2>
+    <div class="row justify-content-center align-items-end g-4 mb-3">
+        <div class="col-12 col-md-4 text-center">
+            <img src="../img/entrega.gif" alt="Marca 1" style="max-width: 100px;" class="gif-hover-zoom">
+            <div class="card shadow-sm mt-3 py-4 h-100 border-0">
+                <h5 class="fw-bold mb-3">Únete como vendedor</h5>
+                <a href="Usuario/registro.html" class="btn btn-gradient-blue">Ingresar</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+            <img src="../img/muy-pronto.gif" alt="Marca 2" style="max-width: 100px;" class="gif-hover-zoom">
+            <div class="card shadow-sm mt-3 py-4 h-100 border-0">
+                <h5 class="fw-bold mb-3 text-muted">Próximamente</h5>
+                <a href="#" class="btn btn-gradient-blue disabled" tabindex="-1" aria-disabled="true">Ingresar</a>
+            </div>
+        </div>
+        <div class="col-12 col-md-4 text-center">
+            <img src="../img/muy-pronto.gif" alt="Marca 3" style="max-width: 100px;" class="gif-hover-zoom">
+            <div class="card shadow-sm mt-3 py-4 h-100 border-0">
+                <h5 class="fw-bold mb-3 text-muted">Próximamente</h5>
+                <a href="#" class="btn btn-gradient-blue disabled" tabindex="-1" aria-disabled="true">Ingresar</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Hero Section -->
+    <section class="container hero-section mb-5 py-5 text-center">
+        <h1 class="mb-3">Descubre, Compra y Vende en <span style="color:#ffc107;">Mextium</span></h1>
+        <p class="mb-4">Explora miles de productos, encuentra ofertas exclusivas y haz crecer tu negocio en la plataforma más innovadora de Latinoamérica.</p>
+        <a href="shop.html" class="btn btn-lg btn-gradient-blue me-2 mb-2"><i class="fa fa-shopping-bag me-2"></i>Ir a la tienda</a>
+        <a href="productos/publicar_producto.html" class="btn btn-lg btn-outline-primary mb-2"><i class="fa fa-plus me-2"></i>Publicar producto</a>
+    </section>
+    <section class="container hero-section mb-5 py-5 text-center">
+        <h1 class="mb-3">Comienza a comprar en <span style="color:#ffc107;">Mextium</span></h1>
+        <p class="mb-4">Ingresa tu ubicación para poder recibir nuestros productos de una forma fácil y rápida.</p>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <input type="text" class="form-control form-control-lg mb-3" placeholder="Ingresa tu ubicación (ej: Calle, ciudad, código postal)">
+                <button class="btn btn-gradient-blue btn-lg w-100 mb-2" type="button">
+                    <i class="fa fa-map-marker-alt me-2"></i> Usar ubicación actual
+                </button>
+                <div class="mt-3">
+                    <a href="Usuario/ingreso.html" class="fw-bold" style="text-decoration: none;">Iniciar sesión</a>
+                    <span class="text-muted ms-2" style="font-weight: normal;">para ver tus ubicaciones recientes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<!-- Navegación rápida -->
+<nav class="container mb-5">
+    <div class="card shadow-sm p-4">
+        <h5 class="mb-3 text-primary"><i class="fa fa-th-large"></i> Categorías</h5>
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="col">
+                <a href="categorias/ropa.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-tshirt"></i> Ropa
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/tecnologia.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-laptop"></i> Tecnología
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/hogar.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-couch"></i> Hogar y Muebles
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/deportes.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-futbol"></i> Deportes
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/electrodomesticos.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-blender"></i> Electrodomésticos
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/juegos_juguetes.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-puzzle-piece"></i> Juegos y Juguetes
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/mascotas.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-paw"></i> Mascotas
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/papeleria.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-pencil-alt"></i> Papelería
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/salud.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-heartbeat"></i> Salud y Belleza
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/supermercado.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-shopping-basket"></i> Supermercado
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias/.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-store-alt"></i> pronto...
+                </a>
+            </div>
+            <div class="col">
+                <a href="categorias.html" class="btn btn-outline-primary w-100 mb-2">
+                    <i class="fa fa-store-alt"></i> pronto...
+                </a>
+            </div>
+            <!-- Agrega aquí más categorías si existen en tu carpeta "categorias" -->
+        </div>
+    </div>
+</nav>
+
+    <!-- Productos destacados -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">Productos Destacados</h2>
+        <div class="row g-4" id="productosDestacados">
+            <!-- Productos destacados se cargarán aquí -->
+        </div>
+    </section>
+
+    <!-- NUEVO: Sección de productos más buscados -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">Productos Más Buscados</h2>
+        <div class="row g-4" id="productosMasBuscados">
+            <!-- Los productos más buscados se cargarán aquí -->
+        </div>
+    </section>
+
+    <!-- Tiendas más buscadas -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">Tiendas Más Buscadas</h2>
+        <div class="row g-4" id="tiendasMasBuscadas">
+            <!-- Las tiendas más buscadas se cargarán aquí -->
+        </div>
+    </section>
+
+    <!-- Testimonios de clientes -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">Lo que opinan nuestros clientes</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <i class="fa fa-quote-left"></i>
+                    <p class="mt-3 mb-2">¡Excelente plataforma! Vendí mis productos rápido y sin complicaciones.</p>
+                    <div class="user">- Ana G.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <i class="fa fa-quote-left"></i>
+                    <p class="mt-3 mb-2">La atención al cliente es muy buena y el envío fue rápido.</p>
+                    <div class="user">- Luis P.</div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="testimonial">
+                    <i class="fa fa-quote-left"></i>
+                    <p class="mt-3 mb-2">Gran variedad de productos y ofertas. ¡Recomendado!</p>
+                    <div class="user">- Sofía R.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVO: Sección de categorías populares -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">Categorías Populares</h2>
+        <div class="row justify-content-center g-4">
+            <div class="col-6 col-md-3">
+                <div class="card shadow-sm text-center py-4 h-100">
+                    <i class="fa fa-tshirt fa-2x mb-2 text-primary"></i>
+                    <h6 class="fw-bold mb-0">Ropa</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card shadow-sm text-center py-4 h-100">
+                    <i class="fa fa-laptop fa-2x mb-2 text-primary"></i>
+                    <h6 class="fw-bold mb-0">Tecnología</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card shadow-sm text-center py-4 h-100">
+                    <i class="fa fa-couch fa-2x mb-2 text-primary"></i>
+                    <h6 class="fw-bold mb-0">Hogar</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card shadow-sm text-center py-4 h-100">
+                    <i class="fa fa-basketball-ball fa-2x mb-2 text-primary"></i>
+                    <h6 class="fw-bold mb-0">Deportes</h6>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVO: Sección de preguntas frecuentes destacadas -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">Preguntas Frecuentes</h2>
+        <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq1">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1">
+                        ¿Cómo puedo vender un producto?
+                    </button>
+                </h2>
+                <div id="faqCollapse1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Solo debes registrarte, ir a "Publicar Producto" y llenar el formulario con los datos de tu producto.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq2">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2">
+                        ¿Cuáles son los métodos de pago aceptados?
+                    </button>
+                </h2>
+                <div id="faqCollapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        Puedes pagar con tarjeta de crédito, débito y transferencias bancarias.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="faq3">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3">
+                        ¿Cómo funciona el envío?
+                    </button>
+                </h2>
+                <div id="faqCollapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        El envío es gestionado por Mextium y llega a todo México. ¡Envío gratis en compras mayores a $999!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVO: Sección de beneficios de usar Mextium -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">¿Por qué elegir Mextium?</h2>
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <div class="card shadow-sm py-4 h-100">
+                    <i class="fa fa-shipping-fast fa-2x mb-2 text-success"></i>
+                    <h6 class="fw-bold mb-2">Envíos Rápidos</h6>
+                    <p class="small text-muted">Recibe tus compras en tiempo récord en todo México.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm py-4 h-100">
+                    <i class="fa fa-lock fa-2x mb-2 text-danger"></i>
+                    <h6 class="fw-bold mb-2">Pago Seguro</h6>
+                    <p class="small text-muted">Tus datos y pagos están protegidos con la mejor tecnología.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm py-4 h-100">
+                    <i class="fa fa-tags fa-2x mb-2 text-warning"></i>
+                    <h6 class="fw-bold mb-2">Ofertas Exclusivas</h6>
+                    <p class="small text-muted">Aprovecha descuentos y promociones únicas cada semana.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm py-4 h-100">
+                    <i class="fa fa-headset fa-2x mb-2 text-primary"></i>
+                    <h6 class="fw-bold mb-2">Soporte 24/7</h6>
+                    <p class="small text-muted">Nuestro equipo te ayuda en todo momento, todos los días.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVO: Sección de newsletter -->
+    <section class="container mb-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm p-4 text-center">
+                    <h4 class="mb-3"><i class="fa fa-envelope-open-text text-primary me-2"></i>Suscríbete a nuestro Newsletter</h4>
+                    <p class="mb-3 text-muted">Recibe novedades, ofertas y tips exclusivos directamente en tu correo.</p>
+                    <form id="newsletter-form" class="row g-2 justify-content-center">
+                        <div class="col-12 col-md-8">
+                            <input type="email" class="form-control" id="newsletter-email" placeholder="Tu correo electrónico" required>
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <button type="submit" class="btn btn-gradient-blue w-100">Suscribirme</button>
+                        </div>
+                    </form>
+                    <div id="newsletter-msg" class="mt-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVO: Sección de apps móviles -->
+    <section class="container mb-5">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-4 mb-md-0">
+                <h3 class="mb-3">¡Lleva Mextium contigo!</h3>
+                <p class="mb-4">Descarga nuestra app y compra o vende desde cualquier lugar.</p>
+                <a href="#" class="btn btn-dark me-2 mb-2"><i class="fab fa-apple me-1"></i> App Store</a>
+                <a href="#" class="btn btn-success mb-2"><i class="fab fa-google-play me-1"></i> Google Play</a>
+            </div>
+            <div class="col-md-6 text-center">
+                <img src="img/app-movil.png" alt="App Mextium" style="max-width: 250px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVO: Sección de marcas aliadas -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">Marcas Aliadas</h2>
+        <div class="row justify-content-center align-items-center g-4">
+            <div class="col-4 col-md-2 text-center">
+                <img src="img/marca1.png" alt="Marca 1" style="max-width: 100px;">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="img/marca2.png" alt="Marca 2" style="max-width: 100px;">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="img/marca3.png" alt="Marca 3" style="max-width: 100px;">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="img/marca4.png" alt="Marca 4" style="max-width: 100px;">
+            </div>
+            <div class="col-4 col-md-2 text-center">
+                <img src="img/marca5.png" alt="Marca 5" style="max-width: 100px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVO: Sección de pasos para comprar y vender -->
+    <section class="container mb-5">
+        <h2 class="section-title text-center mb-4">¿Cómo funciona Mextium?</h2>
+        <div class="row text-center g-4">
+            <div class="col-md-3">
+                <div class="card shadow-sm py-4 h-100">
+                    <i class="fa fa-user-plus fa-2x mb-2 text-primary"></i>
+                    <h6 class="fw-bold mb-2">1. Regístrate</h6>
+                    <p class="small text-muted">Crea tu cuenta gratis en minutos.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm py-4 h-100">
+                    <i class="fa fa-search fa-2x mb-2 text-success"></i>
+                    <h6 class="fw-bold mb-2">2. Explora</h6>
+                    <p class="small text-muted">Busca productos o publica los tuyos fácilmente.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm py-4 h-100">
+                    <i class="fa fa-credit-card fa-2x mb-2 text-warning"></i>
+                    <h6 class="fw-bold mb-2">3. Compra o Vende</h6>
+                    <p class="small text-muted">Realiza transacciones seguras y rápidas.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card shadow-sm py-4 h-100">
+                    <i class="fa fa-smile fa-2x mb-2 text-danger"></i>
+                    <h6 class="fw-bold mb-2">4. Disfruta</h6>
+                    <p class="small text-muted">Recibe tus productos o tus ganancias sin complicaciones.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NUEVO: Barra de redes sociales -->
+    <div class="container mb-5">
+        <h2 class="section-title text-center mb-4">Síguenos en redes sociales</h2>
+        <div class="d-flex justify-content-center gap-4">
+            <a href="https://facebook.com" target="_blank" class="text-primary fs-2"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank" class="text-info fs-2"><i class="fab fa-twitter"></i></a>
+            <a href="https://instagram.com" target="_blank" class="text-danger fs-2"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com" target="_blank" class="text-dark fs-2"><i class="fab fa-tiktok"></i></a>
+            <a href="mailto:soporte@mextium.com" class="text-success fs-2"><i class="fa fa-envelope"></i></a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-mex text-center mt-5 py-4">
+        <div class="container">
+            <div class="mb-2">
+                <a href="encabezados/acerca.html" class="text-white me-3">Acerca de</a>
+                <a href="encabezados/contactos.html" class="text-white me-3">Contactos</a>
+                <a href="encabezados/ayuda.html" class="text-white me-3">Ayuda</a>
+                <a href="encabezados/FAQs.html" class="text-white">FAQs</a>
+            </div>
+            <div>
+                &copy; 2025 <b>Mextium</b>. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bienvenida.js"></script>
+    <script>
+    // Productos destacados simulados
+    const destacados = [
+        {
+            nombre: "Camiseta Deportiva",
+            precio: 199.99,
+            stock: 10,
+            categoria: "Deportes",
+            estado: "Nuevo",
+            descripcion: "Camiseta transpirable ideal para entrenar.",
+            imagen: "img/agregar.gif"
+        },
+        {
+            nombre: "Laptop Ultrabook",
+            precio: 8999.99,
+            stock: 3,
+            categoria: "Tecnología",
+            estado: "Nuevo",
+            descripcion: "Laptop ligera, rápida y con gran batería.",
+            imagen: "img/agregar.gif"
+        },
+        {
+            nombre: "Silla Gamer",
+            precio: 2499.00,
+            stock: 5,
+            categoria: "Hogar y Muebles",
+            estado: "Nuevo",
+            descripcion: "Silla ergonómica para largas sesiones de juego.",
+            imagen: "img/agregar.gif"
+        },
+        {
+            nombre: "Set de Ollas",
+            precio: 799.00,
+            stock: 8,
+            categoria: "Electrodomésticos",
+            estado: "Nuevo",
+            descripcion: "Juego de ollas de acero inoxidable.",
+            imagen: "img/agregar.gif"
+        }
+    ];
+
+    // Productos más buscados simulados
+    const masBuscados = [
+        {
+            nombre: "Tenis Deportivos",
+            precio: 799.00,
+            categoria: "Deportes",
+            descripcion: "Tenis cómodos y modernos para correr o caminar.",
+            imagen: "img/tenis.png"
+        },
+        {
+            nombre: "Smartphone X",
+            precio: 5999.00,
+            categoria: "Tecnología",
+            descripcion: "El smartphone más buscado del año, con gran cámara.",
+            imagen: "img/smartphone.png"
+        },
+        {
+            nombre: "Set de Sartenes",
+            precio: 499.00,
+            categoria: "Hogar y Muebles",
+            descripcion: "Sartenes antiadherentes de alta calidad.",
+            imagen: "img/sartenes.png"
+        },
+        {
+            nombre: "Mochila Escolar",
+            precio: 299.00,
+            categoria: "Papelería",
+            descripcion: "Mochila resistente y con gran capacidad.",
+            imagen: "img/mochila.png"
+        }
+    ];
+
+    // Ejemplo de tiendas más buscadas (puedes reemplazar por tus datos reales)
+    const tiendasMasBuscadas = [
+        {
+            nombre: "Moda Urbana",
+            categoria: "Ropa",
+            descripcion: "Tienda especializada en ropa juvenil y urbana.",
+            imagen: "img/tienda1.png"
+        },
+        {
+            nombre: "Electro Hogar",
+            categoria: "Electrodomésticos",
+            descripcion: "Todo para tu casa en un solo lugar.",
+            imagen: "img/tienda2.png"
+        },
+        {
+            nombre: "Juguetelandia",
+            categoria: "Juegos y Juguetes",
+            descripcion: "Diversión para niños de todas las edades.",
+            imagen: "img/tienda3.png"
+        },
+        {
+            nombre: "Pet Lovers",
+            categoria: "Mascotas",
+            descripcion: "Productos y accesorios para tus mascotas.",
+            imagen: "img/tienda4.png"
+        }
+    ];
+
+    function renderProductos(lista, contenedorId) {
+        let contenedor = document.getElementById(contenedorId);
+        contenedor.innerHTML = "";
+        if (lista.length === 0) {
+            contenedor.innerHTML = `
+                <div class="col-12">
+                    <div class="alert alert-warning text-center p-5 rounded shadow-sm">
+                        <i class="fa fa-box-open fa-2x mb-2 text-warning"></i>
+                        <h4 class="mb-2">No hay productos para mostrar</h4>
+                    </div>
+                </div>
+            `;
+        } else {
+            lista.forEach(function(prod) {
+                contenedor.innerHTML += `
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card card-producto mb-4 h-100">
+                        <img class="card-img-top" src="${prod.imagen || 'img/agregar.gif'}" alt="${prod.nombre}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-truncate mb-2" style="font-weight:600;">${prod.nombre}</h6>
+                            <div class="mb-2">
+                                <span class="badge bg-warning text-dark">Stock: ${prod.stock}</span>
+                                <span class="badge bg-info text-white">${prod.categoria}</span>
+                            </div>
+                            <h5 class="text-warning mb-0">$${prod.precio}</h5>
+                            <p class="small mt-2 text-muted">${prod.descripcion}</p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-outline-warning btn-sm me-2" onclick='agregarAlCarrito(${JSON.stringify(prod)})'>
+                                <i class="fa fa-shopping-cart"></i> Agregar al carrito
+                            </button>
+                            <a href="detail.html?nombre=${encodeURIComponent(prod.nombre)}" class="btn btn-outline-secondary btn-sm">
+                                <i class="fa fa-eye"></i> Detalles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+        }
+    }
+
+    function renderProductosMasBuscados(lista, contenedorId) {
+        let contenedor = document.getElementById(contenedorId);
+        contenedor.innerHTML = "";
+        if (lista.length === 0) {
+            contenedor.innerHTML = `
+                <div class="col-12">
+                    <div class="alert alert-warning text-center p-5 rounded shadow-sm">
+                        <i class="fa fa-search fa-2x mb-2 text-warning"></i>
+                        <h4 class="mb-2">No hay productos para mostrar</h4>
+                    </div>
+                </div>
+            `;
+        } else {
+            lista.forEach(function(prod) {
+                contenedor.innerHTML += `
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card card-producto mb-4 h-100">
+                        <img class="card-img-top" src="${prod.imagen || 'img/agregar.gif'}" alt="${prod.nombre}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-truncate mb-2" style="font-weight:600;">${prod.nombre}</h6>
+                            <div class="mb-2">
+                                <span class="badge bg-info text-white">${prod.categoria}</span>
+                            </div>
+                            <h5 class="text-warning mb-0">$${prod.precio}</h5>
+                            <p class="small mt-2 text-muted">${prod.descripcion}</p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button class="btn btn-outline-warning btn-sm me-2" onclick='agregarAlCarrito(${JSON.stringify(prod)})'>
+                                <i class="fa fa-shopping-cart"></i> Agregar al carrito
+                            </button>
+                            <a href="detail.html?nombre=${encodeURIComponent(prod.nombre)}" class="btn btn-outline-secondary btn-sm">
+                                <i class="fa fa-eye"></i> Detalles
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+        }
+    }
+
+    function renderTiendasMasBuscadas(lista, contenedorId) {
+        let contenedor = document.getElementById(contenedorId);
+        contenedor.innerHTML = "";
+        if (lista.length === 0) {
+            contenedor.innerHTML = `
+                <div class="col-12">
+                    <div class="alert alert-warning text-center p-5 rounded shadow-sm">
+                        <i class="fa fa-store fa-2x mb-2 text-warning"></i>
+                        <h4 class="mb-2">No hay tiendas para mostrar</h4>
+                    </div>
+                </div>
+            `;
+        } else {
+            lista.forEach(function(tienda) {
+                contenedor.innerHTML += `
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="card card-producto mb-4 h-100">
+                        <img class="card-img-top" src="${tienda.imagen || 'img/agregar.gif'}" alt="${tienda.nombre}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-truncate mb-2" style="font-weight:600;">${tienda.nombre}</h6>
+                            <div class="mb-2">
+                                <span class="badge bg-info text-white">${tienda.categoria}</span>
+                            </div>
+                            <p class="small mt-2 text-muted">${tienda.descripcion}</p>
+                        </div>
+                        <div class="card-footer text-center">
+                            <a href="tienda.html?nombre=${encodeURIComponent(tienda.nombre)}" class="btn btn-outline-primary btn-sm">
+                                <i class="fa fa-store"></i> Ver tienda
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+        }
+    }
+
+    function agregarAlCarrito(prod) {
+        let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        let idx = carrito.findIndex(p => p.nombre === prod.nombre);
+        if (idx >= 0) {
+            if (carrito[idx].cantidad < prod.stock) {
+                carrito[idx].cantidad++;
+            } else {
+                alert("No puedes agregar más de la cantidad disponible en stock.");
+                return;
+            }
+        } else {
+            prod.cantidad = 1;
+            carrito.push(prod);
+        }
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+        alert('Producto agregado al carrito');
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        renderProductos(destacados, 'productosDestacados');
+        renderProductosMasBuscados(masBuscados, 'productosMasBuscados');
+        renderTiendasMasBuscadas(tiendasMasBuscadas, 'tiendasMasBuscadas');
+    });
+
+    // Newsletter
+    document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var email = document.getElementById('newsletter-email').value.trim();
+        var msg = document.getElementById('newsletter-msg');
+        if(email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+            msg.innerHTML = '<span class="text-success">¡Gracias por suscribirte!</span>';
+            document.getElementById('newsletter-form').reset();
+        } else {
+            msg.innerHTML = '<span class="text-danger">Por favor, ingresa un correo válido.</span>';
+        }
+    });
+
+    // Sidebar lateral
+    const sidebar = document.getElementById('sidebar-menu');
+    const openBtn = document.getElementById('menu-toggle');
+    const closeBtn = document.getElementById('sidebar-close');
+
+    openBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        sidebar.style.transform = 'translateX(0)';
+    });
+
+    closeBtn.addEventListener('click', function() {
+        sidebar.style.transform = 'translateX(-100%)';
+    });
+
+    // Cambiar ciudad al hacer clic en el menú desplegable
+    document.querySelectorAll('.dropdown-menu .dropdown-item').forEach(function(item) {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.getElementById('ciudadDropdown').innerHTML = this.textContent + ' <i class="fa fa-chevron-down ms-1"></i>';
+        });
+    });
+    </script>
+
+    <!-- NUEVO: Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5215555555555" target="_blank" style="position:fixed;bottom:30px;right:30px;z-index:999;">
+        <i class="fab fa-whatsapp fa-4x text-success" style="background:none;"></i>
+    </a>
+
+    <!-- NUEVO: Botón flotante de ayuda -->
+    <a href="encabezados/ayuda.html" title="¿Necesitas ayuda?" style="position:fixed;bottom:100px;right:30px;z-index:999;">
+        <i class="fa fa-question-circle fa-3x text-warning"></i>
+    </a>
+</body>
+</html>

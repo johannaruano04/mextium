@@ -1,0 +1,48 @@
+<?php
+session_start();
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: ingreso.html");
+    exit;
+}
+$rol = $_SESSION['usuario_rol'];
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Selecciona tu Rol | Mextium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f5f5f5; }
+        .rol-card { transition: box-shadow .2s; }
+        .rol-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.15); }
+    </style>
+</head>
+<body>
+    <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height:100vh;">
+        <h2 class="mb-4">¿Cómo deseas ingresar?</h2>
+        <div class="row w-100 justify-content-center">
+            <div class="col-md-4 mb-3">
+                <div class="card rol-card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Usuario</h5>
+                        <p class="card-text">Accede como usuario para comprar y gestionar tu cuenta.</p>
+                        <a href="../index.html" class="btn btn-primary">Entrar como Usuario</a>
+                    </div>
+                </div>
+            </div>
+            <?php if ($rol == 'admin'): ?>
+            <div class="col-md-4 mb-3">
+                <div class="card rol-card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Administrador</h5>
+                        <p class="card-text">Accede al panel de administración para gestionar la plataforma.</p>
+                        <a href="../../admin/dashboard.php" class="btn btn-warning">Entrar como Administrador</a>
+                    </div>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</body>
+</html>

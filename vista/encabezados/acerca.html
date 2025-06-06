@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acerca de Nosotros</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(120deg, #e3f0ff 0%, #fffbe7 100%) !important;
+        }
+        .acerca-header {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+            color: #fff;
+            border-radius: 0 0 24px 24px;
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .acerca-header .logo-mex {
+            color: #fff;
+            background: #007bff;
+            font-weight: bold;
+            font-size: 2rem;
+            border-radius: 8px 0 0 8px;
+            padding: 0 12px;
+        }
+        .acerca-header .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            font-weight: bold;
+            font-size: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin-left: -5px;
+            padding: 0 12px;
+        }
+        .acerca-header .slogan {
+            color: #fffbe7;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+        }
+        .acerca-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,123,255,0.10);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-mex {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+            color: #fff;
+            border-radius: 18px 18px 0 0;
+            margin-top: 50px;
+            padding: 30px 0 10px 0;
+        }
+        .footer-mex a { color: #fffbe7; }
+        .footer-mex a:hover { color: #fff; text-decoration: underline; }
+        .acerca-section-title {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .acerca-icon {
+            color: #ffc107;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado moderno -->
+    <div class="acerca-header">
+        <span class="logo-mex">Mex</span>
+        <span class="logo-tium">tium</span>
+        <div class="slogan">Conoce más sobre nuestra plataforma</div>
+    </div>
+
+    <!-- Navegación rápida -->
+    <nav class="container mb-4">
+        <div class="card shadow-sm p-3">
+            <div class="row row-cols-2 row-cols-md-4 g-2 text-center">
+                <div class="col"><a href="../index.html" class="btn btn-outline-primary w-100 mb-2"><i class="fa fa-home"></i> Inicio</a></div>
+                <div class="col"><a href="contactos.html" class="btn btn-outline-warning w-100 mb-2"><i class="fa fa-envelope"></i> Contacto</a></div>
+                <div class="col"><a href="ayuda.html" class="btn btn-outline-primary w-100 mb-2"><i class="fa fa-question-circle"></i> Ayuda</a></div>
+                <div class="col"><a href="FAQs.html" class="btn btn-outline-warning w-100 mb-2"><i class="fa fa-comments"></i> FAQs</a></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Acerca de Nosotros Section -->
+    <div class="container acerca-card">
+        <h2 class="text-center acerca-section-title mb-4"><i class="fa fa-users acerca-icon"></i>Acerca de Nosotros</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h3 class="text-warning">Misión</h3>
+                <p>Facilitar el comercio electrónico conectando de manera eficiente a vendedores y compradores mediante una plataforma confiable, segura y accesible que fomente el crecimiento de negocios y satisfaga las necesidades de los usuarios.
+                Proporcionar una plataforma integral de comercio electrónico que permita a emprendedores, pequeñas empresas y grandes marcas crear, personalizar y gestionar sus tiendas en línea con facilidad. Nos comprometemos a ofrecer herramientas innovadoras, un soporte excepcional y un ecosistema colaborativo que fomente el crecimiento sostenible y el éxito de nuestros clientes, ayudándolos a alcanzar sus metas empresariales y a conectar con sus clientes en cualquier parte del mundo. A través de nuestra tecnología, buscamos democratizar el acceso al comercio digital, impulsando economías locales y globales.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h3 class="text-warning">Visión</h3>
+                <p>Ser la solución global líder en comercio electrónico, reconocida por transformar el panorama empresarial al brindar herramientas que potencian la creatividad, el crecimiento sostenible y el éxito de millones de emprendedores. Siendo la plataforma de Marketplace líder en innovación, reconocida por su impacto positivo en la economía digital y por ofrecer una experiencia excepcional que impulse el éxito de emprendedores y la confianza de los consumidores en el comercio electrónico.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h3 class="text-warning">Historia</h3>
+                <p>Mextium nació con el objetivo de revolucionar el comercio en línea, ofreciendo una experiencia única para compradores y vendedores. Desde nuestros inicios, hemos trabajado para construir una comunidad confiable y accesible.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer moderno -->
+    <footer class="footer-mex text-center mt-5">
+        <div class="container">
+            <div class="mb-2">
+                <a href="../index.html" class="text-white me-3">Inicio</a>
+                <a href="contactos.html" class="text-white me-3">Contacto</a>
+                <a href="ayuda.html" class="text-white me-3">Ayuda</a>
+                <a href="FAQs.html" class="text-white">FAQs</a>
+            </div>
+            <div>
+                &copy; 2025 <b>Mextium</b>. Todos los derechos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

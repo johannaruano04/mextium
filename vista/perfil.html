@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Perfil - Mextium</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background: #f5f5f5; }
+        .perfil-header {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #fff;
+            padding: 30px 0 20px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .perfil-header .logo-mex {
+            color: #007bff;
+            background: #212529;
+            padding: 0 10px;
+            border-radius: 5px 0 0 5px;
+        }
+        .perfil-header .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            padding: 0 10px;
+            border-radius: 0 5px 5px 0;
+            margin-left: -5px;
+        }
+        .card-perfil {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+            margin-bottom: 30px;
+        }
+        .perfil-img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid #ffc107;
+            margin-bottom: 10px;
+        }
+        .perfil-btns .btn {
+            min-width: 150px;
+        }
+        .list-group-item strong {
+            color: #007bff;
+        }
+        .bg-gradient-primary {
+            background: linear-gradient(90deg, #007bff 0%, #ffc107 100%) !important;
+            color: #fff !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="perfil-header">
+        <span class="h1 text-uppercase logo-mex">Mex</span>
+        <span class="h1 text-uppercase logo-tium">tium</span>
+        <div class="mt-2">Mi Perfil</div>
+    </div>
+    <div class="container mb-5">
+        <div class="row g-4 justify-content-center">
+            <!-- Perfil de Usuario -->
+            <div class="col-lg-5">
+                <div class="card card-perfil">
+                    <div class="card-body text-center">
+                        <img id="fotoPerfilUsuario" src="img/user.png" alt="Usuario" class="perfil-img mb-2">
+                        <h4 id="nombreUsuario" class="mb-1">¡Bienvenido!</h4>
+                        <p class="text-muted mb-3" id="emailUsuario">usuario@email.com</p>
+                        <ul class="list-group list-group-flush mb-3 text-start">
+                            <li class="list-group-item"><strong>Nombre completo:</strong> <span id="nombreCompletoUsuario">No registrado</span></li>
+                            <li class="list-group-item"><strong>Teléfono:</strong> <span id="telefonoUsuario">No registrado</span></li>
+                            <li class="list-group-item"><strong>Dirección:</strong> <span id="direccionUsuario">No registrada</span></li>
+                            <li class="list-group-item"><strong>Ciudad:</strong> <span id="ciudadUsuario">No registrada</span></li>
+                            <li class="list-group-item"><strong>Departamento/Estado:</strong> <span id="departamentoUsuario">No registrado</span></li>
+                            <li class="list-group-item"><strong>País:</strong> <span id="paisUsuario">No registrado</span></li>
+                            <li class="list-group-item"><strong>Fecha de nacimiento:</strong> <span id="fechaNacimientoUsuario">No registrada</span></li>
+                            <li class="list-group-item"><strong>Género:</strong> <span id="generoUsuario">No registrado</span></li>
+                            <li class="list-group-item"><strong>Documento de identidad:</strong> <span id="documentoUsuario">No registrado</span></li>
+                            <li class="list-group-item"><strong>Fecha de registro:</strong> <span id="fechaRegistroUsuario">No disponible</span></li>
+                            <li class="list-group-item"><strong>Último acceso:</strong> <span id="ultimoAccesoUsuario">No disponible</span></li>
+                            <li class="list-group-item"><strong>Rol:</strong> <span id="rolUsuario">Usuario</span></li>
+                            <li class="list-group-item"><strong>Estado de la cuenta:</strong> <span id="estadoUsuario">Activa</span></li>
+                        </ul>
+                        <div class="perfil-btns d-flex flex-column gap-2">
+                            <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+                            <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editarPerfilModal"><i class="fa fa-edit"></i> Editar información</button>
+                            <button id="cerrarSesion" class="btn btn-danger">Cerrar sesión</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Información de la Tienda -->
+            <div class="col-lg-5">
+                <div class="card card-perfil">
+                    <div class="card-header bg-gradient-primary text-center">
+                        <h4 class="mb-0">Mi Tienda</h4>
+                    </div>
+                    <div class="card-body text-center">
+                        <img src="img/shop.png" alt="Tienda" class="rounded mb-3" width="90" height="90">
+                        <ul class="list-group list-group-flush mb-3 text-start">
+                            <li class="list-group-item"><strong>Nombre de la tienda:</strong> <span id="nombreTienda">No registrado</span></li>
+                            <li class="list-group-item"><strong>Descripción:</strong> <span id="descripcionTienda">No registrada</span></li>
+                            <li class="list-group-item"><strong>Categoría principal:</strong> <span id="categoriaTienda">No registrada</span></li>
+                            <li class="list-group-item"><strong>Fecha de creación:</strong> <span id="fechaCreacionTienda">No disponible</span></li>
+                            <li class="list-group-item"><strong>Productos publicados:</strong> <span id="productosTienda">0</span></li>
+                            <li class="list-group-item"><strong>Productos vendidos:</strong> <span id="vendidosTienda">0</span></li>
+                            <li class="list-group-item"><strong>Reseñas:</strong> <span id="resenasTienda">0</span></li>
+                            <li class="list-group-item"><strong>Calificación promedio:</strong> <span id="calificacionTienda">N/A</span></li>
+                            <li class="list-group-item"><strong>Seguidores:</strong> <span id="seguidoresTienda">0</span></li>
+                            <li class="list-group-item"><strong>Ubicación:</strong> <span id="ubicacionTienda">No registrada</span></li>
+                            <li class="list-group-item"><strong>Estado de la tienda:</strong> <span id="estadoTienda">Activa</span></li>
+                        </ul>
+                        <div class="perfil-btns d-flex flex-column gap-2">
+                            <a href="publicar_producto.html" class="btn btn-success"><i class="fa fa-plus"></i> Publicar Producto</a>
+                            <a href="mis_productos.html" class="btn btn-outline-success"><i class="fa fa-list"></i> Ver mis productos</a>
+                            <a href="ventas.html" class="btn btn-info"><i class="fa fa-shopping-bag"></i> Ver ventas</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para editar información de usuario -->
+    <div class="modal fade" id="editarPerfilModal" tabindex="-1" aria-labelledby="editarPerfilModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <form id="formEditarPerfil" class="modal-content" enctype="multipart/form-data">
+          <div class="modal-header">
+            <h5 class="modal-title" id="editarPerfilModalLabel">Editar Información de Usuario</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body">
+              <div class="form-group text-center mb-3">
+                  <label for="editFotoPerfil"><strong>Foto de perfil</strong></label>
+                  <div class="mb-2">
+                      <img id="previewFotoPerfil" src="img/user.png" alt="Foto actual" class="perfil-img" style="width:80px;height:80px;">
+                  </div>
+                  <input type="file" class="form-control mb-2" id="editFotoPerfil" accept="image/*">
+                  <input type="url" class="form-control" id="editFotoPerfilURL" placeholder="O pega aquí el enlace de una imagen">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editNombreCompleto">Nombre completo</label>
+                  <input type="text" class="form-control" id="editNombreCompleto">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editEmail">Correo electrónico</label>
+                  <input type="email" class="form-control" id="editEmail">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editTelefono">Teléfono</label>
+                  <input type="text" class="form-control" id="editTelefono">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editDireccion">Dirección</label>
+                  <input type="text" class="form-control" id="editDireccion">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editCiudad">Ciudad</label>
+                  <input type="text" class="form-control" id="editCiudad">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editDepartamento">Departamento/Estado</label>
+                  <input type="text" class="form-control" id="editDepartamento">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editPais">País</label>
+                  <input type="text" class="form-control" id="editPais">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editFechaNacimiento">Fecha de nacimiento</label>
+                  <input type="date" class="form-control" id="editFechaNacimiento">
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editGenero">Género</label>
+                  <select class="form-control" id="editGenero">
+                      <option value="">Selecciona</option>
+                      <option value="Masculino">Masculino</option>
+                      <option value="Femenino">Femenino</option>
+                      <option value="Otro">Otro</option>
+                  </select>
+              </div>
+              <div class="form-group mb-2">
+                  <label for="editDocumento">Documento de identidad</label>
+                  <input type="text" class="form-control" id="editDocumento">
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <footer class="text-center py-3 mt-4" style="background:#ffc107; color:#212529;">
+        &copy; 2025 Mextium. Todos los derechos reservados.
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    // Mostrar información del usuario desde localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        // Usuario
+        var nombre = localStorage.getItem('nombreUsuario');
+        var nombreCompleto = localStorage.getItem('nombreCompletoUsuario');
+        var email = localStorage.getItem('emailUsuario');
+        var telefono = localStorage.getItem('telefonoUsuario');
+        var direccion = localStorage.getItem('direccionUsuario');
+        var ciudad = localStorage.getItem('ciudadUsuario');
+        var departamento = localStorage.getItem('departamentoUsuario');
+        var pais = localStorage.getItem('paisUsuario');
+        var fechaNacimiento = localStorage.getItem('fechaNacimientoUsuario');
+        var genero = localStorage.getItem('generoUsuario');
+        var documento = localStorage.getItem('documentoUsuario');
+        var fechaRegistro = localStorage.getItem('fechaRegistroUsuario');
+        var ultimoAcceso = localStorage.getItem('ultimoAccesoUsuario');
+        var rol = localStorage.getItem('rolUsuario');
+        var estado = localStorage.getItem('estadoUsuario');
+
+        if(nombre) document.getElementById('nombreUsuario').textContent = "¡Bienvenido, " + nombre + "!";
+        if(nombreCompleto) document.getElementById('nombreCompletoUsuario').textContent = nombreCompleto;
+        if(email) document.getElementById('emailUsuario').textContent = email;
+        if(telefono) document.getElementById('telefonoUsuario').textContent = telefono;
+        if(direccion) document.getElementById('direccionUsuario').textContent = direccion;
+        if(ciudad) document.getElementById('ciudadUsuario').textContent = ciudad;
+        if(departamento) document.getElementById('departamentoUsuario').textContent = departamento;
+        if(pais) document.getElementById('paisUsuario').textContent = pais;
+        if(fechaNacimiento) document.getElementById('fechaNacimientoUsuario').textContent = fechaNacimiento;
+        if(genero) document.getElementById('generoUsuario').textContent = genero;
+        if(documento) document.getElementById('documentoUsuario').textContent = documento;
+        if(fechaRegistro) document.getElementById('fechaRegistroUsuario').textContent = fechaRegistro;
+        if(ultimoAcceso) document.getElementById('ultimoAccesoUsuario').textContent = ultimoAcceso;
+        if(rol) document.getElementById('rolUsuario').textContent = rol;
+        if(estado) document.getElementById('estadoUsuario').textContent = estado;
+
+        // Tienda
+        var nombreTienda = localStorage.getItem('nombreTienda');
+        var descripcionTienda = localStorage.getItem('descripcionTienda');
+        var categoriaTienda = localStorage.getItem('categoriaTienda');
+        var fechaCreacionTienda = localStorage.getItem('fechaCreacionTienda');
+        var productosTienda = localStorage.getItem('productosTienda');
+        var vendidosTienda = localStorage.getItem('vendidosTienda');
+        var resenasTienda = localStorage.getItem('resenasTienda');
+        var calificacionTienda = localStorage.getItem('calificacionTienda');
+        var seguidoresTienda = localStorage.getItem('seguidoresTienda');
+        var ubicacionTienda = localStorage.getItem('ubicacionTienda');
+        var estadoTienda = localStorage.getItem('estadoTienda');
+
+        if(nombreTienda) document.getElementById('nombreTienda').textContent = nombreTienda;
+        if(descripcionTienda) document.getElementById('descripcionTienda').textContent = descripcionTienda;
+        if(categoriaTienda) document.getElementById('categoriaTienda').textContent = categoriaTienda;
+        if(fechaCreacionTienda) document.getElementById('fechaCreacionTienda').textContent = fechaCreacionTienda;
+        if(productosTienda) document.getElementById('productosTienda').textContent = productosTienda;
+        if(vendidosTienda) document.getElementById('vendidosTienda').textContent = vendidosTienda;
+        if(resenasTienda) document.getElementById('resenasTienda').textContent = resenasTienda;
+        if(calificacionTienda) document.getElementById('calificacionTienda').textContent = calificacionTienda;
+        if(seguidoresTienda) document.getElementById('seguidoresTienda').textContent = seguidoresTienda;
+        if(ubicacionTienda) document.getElementById('ubicacionTienda').textContent = ubicacionTienda;
+        if(estadoTienda) document.getElementById('estadoTienda').textContent = estadoTienda;
+
+        // Mostrar foto de perfil si existe
+        var fotoPerfil = localStorage.getItem('fotoPerfilUsuario');
+        if(fotoPerfil) {
+            var img = document.getElementById('fotoPerfilUsuario');
+            if(img) img.src = fotoPerfil;
+            var preview = document.getElementById('previewFotoPerfil');
+            if(preview) preview.src = fotoPerfil;
+        }
+
+        // Previsualizar imagen al seleccionar archivo
+        document.getElementById('editFotoPerfil').addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(ev) {
+                    document.getElementById('previewFotoPerfil').src = ev.target.result;
+                }
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+
+        // Previsualizar imagen al pegar URL
+        document.getElementById('editFotoPerfilURL').addEventListener('input', function(e) {
+            var url = e.target.value;
+            if(url) {
+                document.getElementById('previewFotoPerfil').src = url;
+            }
+        });
+    });
+
+    // Guardar cambios del perfil (incluye foto)
+    document.getElementById('formEditarPerfil').addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Foto de perfil
+        var fileInput = document.getElementById('editFotoPerfil');
+        var urlInput = document.getElementById('editFotoPerfilURL');
+        var fotoPerfil = "";
+
+        if (fileInput.files && fileInput.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(ev) {
+                localStorage.setItem('fotoPerfilUsuario', ev.target.result);
+                guardarCamposYRecargar();
+            }
+            reader.readAsDataURL(fileInput.files[0]);
+            return; // Espera a que FileReader termine antes de recargar
+        } else if (urlInput.value) {
+            localStorage.setItem('fotoPerfilUsuario', urlInput.value);
+        }
+
+        guardarCamposYRecargar();
+
+        function guardarCamposYRecargar() {
+            localStorage.setItem('nombreCompletoUsuario', document.getElementById('editNombreCompleto').value);
+            localStorage.setItem('emailUsuario', document.getElementById('editEmail').value);
+            localStorage.setItem('telefonoUsuario', document.getElementById('editTelefono').value);
+            localStorage.setItem('direccionUsuario', document.getElementById('editDireccion').value);
+            localStorage.setItem('ciudadUsuario', document.getElementById('editCiudad').value);
+            localStorage.setItem('departamentoUsuario', document.getElementById('editDepartamento').value);
+            localStorage.setItem('paisUsuario', document.getElementById('editPais').value);
+            localStorage.setItem('fechaNacimientoUsuario', document.getElementById('editFechaNacimiento').value);
+            localStorage.setItem('generoUsuario', document.getElementById('editGenero').value);
+            localStorage.setItem('documentoUsuario', document.getElementById('editDocumento').value);
+            var modal = bootstrap.Modal.getInstance(document.getElementById('editarPerfilModal'));
+            if(modal) modal.hide();
+            location.reload();
+        }
+    });
+
+    // Cerrar sesión
+    document.getElementById('cerrarSesion').addEventListener('click', function() {
+        localStorage.clear();
+        window.location.href = "index.html";
+    });
+    </script>
+</body>
+</html>

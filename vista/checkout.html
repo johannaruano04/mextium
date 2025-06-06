@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mextium</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Cambia solo los colores principales a azul y amarillo, manteniendo la estructura original -->
+    <style>
+    body {
+        background: linear-gradient(120deg, #e3f0ff 0%, #fffbe7 100%);
+    }
+    .contact-header {
+        background: linear-gradient(90deg, #007bff 0%, #ffc107 100%) !important;
+        color: #fff !important;
+    }
+    .contact-header .logo-mex {
+        color: #fff;
+        background: #007bff;
+    }
+    .contact-header .logo-tium {
+        color: #212529;
+        background: #ffc107;
+    }
+    .contact-header .slogan {
+        color: #e3f0ff;
+    }
+    .contact-card {
+        box-shadow: 0 4px 24px rgba(0,123,255,0.10);
+        border-radius: 18px;
+        background: #fff;
+        border: 2px solid #007bff1a;
+    }
+    .btn-gradient-blue {
+        background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+        color: #fff;
+        border: none;
+    }
+    .btn-gradient-blue:hover {
+        background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+        color: #fff;
+    }
+    .contact-info-icon {
+        color: #007bff;
+    }
+    .footer-mex {
+        background: linear-gradient(90deg, #007bff 0%, #ffc107 100%);
+        color: #fff;
+    }
+    .footer-mex a { color: #fffbe7; }
+    .footer-mex a:hover { color: #fff; }
+    .alert-success {
+        background: #e3f0ff;
+        color: #007bff;
+        border-color: #ffc107;
+    }
+    </style>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row bg-secondary py-1 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center h-100">
+                    <a class="text-body mr-3" href="../vista/encabezados/acerca.html">Acerca de</a>
+                    <a class="text-body mr-3" href="../vista/encabezados/contactos.html">Contactos</a>
+                    <a class="text-body mr-3" href="../vista/encabezados/ayuda.html">Ayuda</a>
+                    <a class="text-body mr-3" href="../vista/encabezados/FAQs.html">FAQs</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">Mi Cuenta</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="../vista/Usuario/registro.html">Registrate</a> <!-- Enlace al formulario de registro -->
+                            <a class="dropdown-item" href="../vista/Usuario/ingreso.html">Inicia Sesión</a> <!-- Enlace a la página de inicio de sesión -->
+                        </div>
+                    </div>
+                    <div class="btn-group mx-2">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">COP</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">EUR</button>
+                            <button class="dropdown-item" type="button">USD</button>
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">ESPAÑOL</button>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" type="button">INGLES</button>
+                            <button class="dropdown-item" type="button">FRANCES</button>
+                            <button class="dropdown-item" type="button">PORTUGUES</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-inline-flex align-items-center d-block d-lg-none">
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-heart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                    <a href="" class="btn px-0 ml-2">
+                        <i class="fas fa-shopping-cart text-dark"></i>
+                        <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+            <div class="col-lg-4">
+                <a href="" class="text-decoration-none d-flex align-items-center">
+                    <img src="img/logo.png" alt="Logo" style="height: 50px; margin-right: 10px;">
+                    <span class="h1 text-uppercase text-primary bg-dark px-2">Mex</span>
+                    <span class="h1 text-uppercase text-dark bg-primary px-2 ml-n1">tium</span>
+                </a>
+            </div>
+            <div class="col-lg-4 col-6 text-left">
+                <form action="">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar el producto que deseas">
+                        <div class="input-group-append">
+                            <span class="input-group-text bg-transparent text-primary">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 col-6 text-right">
+                <p class="m-0">Servicio al Cliente</p>
+                <h5 class="m-0">"Numero"</h5>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid bg-dark mb-30">
+        <div class="row px-xl-5">
+            <div class="col-lg-3 d-none d-lg-block">
+                <a class="btn d-flex align-items-center justify-content-between bg-primary w-100" data-toggle="collapse" href="#navbar-vertical" style="height: 65px; padding: 0 30px;">
+                    <h6 class="text-dark m-0"><i class="fa fa-bars mr-2"></i>Categorias</h6>
+                    <i class="fa fa-angle-down text-dark"></i>
+                </a>
+                <nav class="collapse position-absolute navbar navbar-vertical navbar-light align-items-start p-0 bg-light" id="navbar-vertical" style="width: calc(100% - 30px); z-index: 999;">
+                    <div class="navbar-nav w-100">
+                        <div class="nav-item dropdown dropright">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Moda <i class="fa fa-angle-right float-right mt-1"></i></a>
+                            <div class="dropdown-menu position-absolute rounded-0 border-0 m-0">
+                                <a href="../vista/categorias/ropahombre.html" class="dropdown-item">Ropa para Hombre</a>
+                                <a href="../vista/categorias/ropamujer.html" class="dropdown-item">Ropa para Mujer</a>
+                                <a href="../vista/categorias/ropainfantil.html" class="dropdown-item">Ropa para Niño/as</a>
+                            </div>
+                        </div>
+                        <a href="../vista/categorias/tecnologia.html" class="nav-item nav-link">Tecnologia</a>
+                        <a href="../vista/categorias/electrodomesticos.html" class="nav-item nav-link">Electrodomesticos</a>
+                        <a href="../vista/categorias/supermercado.html" class="nav-item nav-link">Supermercado</a>
+                        <a href="../vista/categorias/deportes.html" class="nav-item nav-link">Deportes</a>
+                        <a href="../vista/categorias/salud.html" class="nav-item nav-link">Salud</a>
+                        <a href="../vista/categorias/papeleria.html" class="nav-item nav-link">Papelería</a>
+                        <a href="../vista/categorias/juegos_juguetes.html" class="nav-item nav-link">Juegos y Juguetes</a>
+                        <a href="../vista/categorias/hogar.html" class="nav-item nav-link">Hogar y Muebles</a>
+                        <a href="../vista/categorias/mascotas.html" class="nav-item nav-link">Mascotas</a>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-lg-9">
+                <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-0">
+                    <a href="" class="text-decoration-none d-block d-lg-none">
+                        <span class="h1 text-uppercase text-dark bg-light px-2">Mex</span>
+                        <span class="h1 text-uppercase text-light bg-primary px-2 ml-n1">tium</span>
+                    </a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                        <div class="navbar-nav mr-auto py-0">
+                            <a href="../vista/index.html" class="nav-item nav-link active">Inicio</a>
+                            <a href="../vista/shop.html" class="nav-item nav-link">Tiendas</a>
+                            <a href="../vista/detail.html" class="nav-item nav-link">Detalles de Productos</a>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Más <i class="fa fa-angle-down mt-1"></i></a>
+                                <div class="dropdown-menu bg-primary rounded-0 border-0 m-0">
+                                    <a href="../vista/cart.html" class="dropdown-item">Carrito de Compras</a>
+                                    <a href="../vista/checkout.html" class="dropdown-item">Pagos</a>
+                                </div>
+                            </div>
+                            <a href="../vista/contact.html" class="nav-item nav-link">Contacto</a>
+                        </div>
+                        <div class="navbar-nav ml-auto py-0 d-none d-lg-block">
+                            <a href="" class="btn px-0">
+                                <i class="fas fa-heart text-primary"></i>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                            </a>
+                            <a href="" class="btn px-0 ml-3">
+                                <i class="fas fa-shopping-cart text-primary"></i>
+                                <span class="badge text-secondary border border-secondary rounded-circle" style="padding-bottom: 2px;">0</span>
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar End -->
+
+
+
+    <!-- Breadcrumb Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-12">
+                <nav class="breadcrumb bg-light mb-30">
+                    <a class="breadcrumb-item text-dark" href="#">Inicio</a>
+                    <a class="breadcrumb-item text-dark" href="#">Tienda</a>
+                    <span class="breadcrumb-item active">Pagos</span>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb End -->
+
+
+    <!-- Checkout Start -->
+    <div class="container-fluid">
+        <div class="row px-xl-5">
+            <div class="col-lg-8">
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Datos para envio</span></h5>
+                <div class="bg-light p-30 mb-5">
+                    <div class="row">
+                        <div class="col-md-6 form-group">
+                            <label>Primer nombre</label>
+                            <input class="form-control" type="text" placeholder="John">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Segundo nombre</label>
+                            <input class="form-control" type="text" placeholder="Doe">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Correo Electrónico</label>
+                            <input class="form-control" type="text" placeholder="example@email.com">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Número Telefónico</label>
+                            <input class="form-control" type="text" placeholder="+123 456 789">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Dirección</label>
+                            <input class="form-control" type="text" placeholder="123 Street">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>Detalle de dirección</label>
+                            <input class="form-control" type="text" placeholder="123 Street">
+                        </div>
+                        <div class="col-md-6 form-group">
+                            <label>País</label>
+                            <select class="custom-select">
+                                    <option selected>Selecciona un país</option>
+                                    <option value="AF">Afganistán</option>
+                                    <option value="AL">Albania</option>
+                                    <option value="DZ">Argelia</option>
+                                    <option value="AD">Andorra</option>
+                                    <option value="AO">Angola</option>
+                                    <option value="AR">Argentina</option>
+                                    <option value="AM">Armenia</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="AT">Austria</option>
+                                    <option value="AZ">Azerbaiyán</option>
+                                    <option value="BS">Bahamas</option>
+                                    <option value="BH">Baréin</option>
+                                    <option value="BD">Bangladés</option>
+                                    <option value="BB">Barbados</option>
+                                    <option value="BY">Bielorrusia</option>
+                                    <option value="BE">Bélgica</option>
+                                    <option value="BZ">Belice</option>
+                                    <option value="BJ">Benín</option>
+                                    <option value="BT">Bután</option>
+                                    <option value="BO">Bolivia</option>
+                                    <option value="BA">Bosnia y Herzegovina</option>
+                                    <option value="BW">Botsuana</option>
+                                    <option value="BR">Brasil</option>
+                                    <option value="BN">Brunéi</option>
+                                    <option value="BG">Bulgaria</option>
+                                    <option value="BF">Burkina Faso</option>
+                                    <option value="BI">Burundi</option>
+                                    <option value="KH">Camboya</option>
+                                    <option value="CM">Camerún</option>
+                                    <option value="CA">Canadá</option>
+                                    <option value="CV">Cabo Verde</option>
+                                    <option value="CF">República Centroafricana</option>
+                                    <option value="TD">Chad</option>
+                                    <option value="CL">Chile</option>
+                                    <option value="CN">China</option>
+                                    <option value="CO">Colombia</option>
+                                    <option value="KM">Comoras</option>
+                                    <option value="CG">Congo</option>
+                                    <option value="CR">Costa Rica</option>
+                                    <option value="HR">Croacia</option>
+                                    <option value="CU">Cuba</option>
+                                    <option value="CY">Chipre</option>
+                                    <option value="CZ">República Checa</option>
+                                    <option value="DK">Dinamarca</option>
+                                    <option value="DJ">Yibuti</option>
+                                    <option value="DM">Dominica</option>
+                                    <option value="DO">República Dominicana</option>
+                                    <option value="EC">Ecuador</option>
+                                    <option value="EG">Egipto</option>
+                                    <option value="SV">El Salvador</option>
+                                    <option value="GQ">Guinea Ecuatorial</option>
+                                    <option value="ER">Eritrea</option>
+                                    <option value="EE">Estonia</option>
+                                    <option value="ET">Etiopía</option>
+                                    <option value="FJ">Fiyi</option>
+                                    <option value="FI">Finlandia</option>
+                                    <option value="FR">Francia</option>
+                                    <option value="GA">Gabón</option>
+                                    <option value="GM">Gambia</option>
+                                    <option value="GE">Georgia</option>
+                                    <option value="DE">Alemania</option>
+                                    <option value="GH">Ghana</option>
+                                    <option value="GR">Grecia</option>
+                                    <option value="GT">Guatemala</option>
+                                    <option value="GN">Guinea</option>
+                                    <option value="GW">Guinea-Bisáu</option>
+                                    <option value="GY">Guyana</option>
+                                    <option value="HT">Haití</option>
+                                    <option value="HN">Honduras</option>
+                                    <option value="HU">Hungría</option>
+                                    <option value="IS">Islandia</option>
+                                    <option value="IN">India</option>
+                                    <option value="ID">Indonesia</option>
+                                    <option value="IR">Irán</option>
+                                    <option value="IQ">Irak</option>
+                                    <option value="IE">Irlanda</option>
+                                    <option value="IL">Israel</option>
+                                    <option value="IT">Italia</option>
+                                    <option value="JM">Jamaica</option>
+                                    <option value="JP">Japón</option>
+                                    <option value="JO">Jordania</option>
+                                    <option value="KZ">Kazajistán</option>
+                                    <option value="KE">Kenia</option>
+                                    <option value="KI">Kiribati</option>
+                                    <option value="KP">Corea del Norte</option>
+                                    <option value="KR">Corea del Sur</option>
+                                    <option value="KW">Kuwait</option>
+                                    <option value="KG">Kirguistán</option>
+                                    <option value="LA">Laos</option>
+                                    <option value="LV">Letonia</option>
+   

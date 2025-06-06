@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Mextium | Tienda</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap 5 y FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body { background: #f5f5f5; }
+        .cart-header {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #fff;
+            padding: 30px 0 20px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .cart-header .logo-mex {
+            color: #007bff;
+            background: #212529;
+            padding: 0 10px;
+            border-radius: 5px 0 0 5px;
+        }
+        .cart-header .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            padding: 0 10px;
+            border-radius: 0 5px 5px 0;
+            margin-left: -5px;
+        }
+        .card-producto {
+            transition: box-shadow .2s;
+            
+        }
+        .card-producto:hover {
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+        .preview-img {
+            max-width: 180px;
+            max-height: 180px;
+            border-radius: 10px;
+            margin: 0 auto 10px auto;
+            display: block;
+            object-fit: cover;
+        }
+        .badge-categoria {
+            background: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="cart-header">
+        <span class="h1 text-uppercase logo-mex">Mex</span>
+        <span class="h1 text-uppercase logo-tium">tium</span>
+        <div class="mt-2">Tienda</div>
+    </div>
+    <div class="container mb-5">
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <form class="d-flex justify-content-center mb-4" id="formBuscar">
+                    <input class="form-control w-50 me-2" type="search" placeholder="Buscar productos..." aria-label="Buscar" id="busquedaProducto">
+                    <button class="btn btn-primary" type="submit"><i class="fa fa-search"></i> Buscar</button>
+                </form>
+            </div>
+        </div>
+        <div class="row" id="productosTienda">
+            <!-- Aquí se mostrarán los productos de la tienda -->
+        </div>
+    </div>
+    <footer class="text-center py-3 mt-4" style="background:#ffc107; color:#212529;">
+        &copy; 2025 Mextium. Todos los derechos reservados.
+    </footer>
+    <script>
+    // Simulación de productos de la tienda (puedes reemplazar por fetch a tu backend)
+    let productos = [
+        {
+            nombre: "Camiseta Deportiva",
+            precio: 199.99,
+            stock: 10,
+            categoria: "Deportes",
+            estado: "Nuevo",
+            descripcion: "Camiseta transpirable ideal para entrenar.",
+            imagen: "../img/agregar.gif"
+        },
+        {
+            nombre: "Laptop Ultrabook",
+            precio: 8999.99,
+            stock: 3,
+            categoria: "Tecnología",
+            estado: "Nuevo",
+            descripcion: "Laptop ligera, rápida y con gran batería.",
+            imagen: "../img/agregar.gif"
+        },
+        {
+            nombre: "Silla Gamer",
+            precio: 2499.00,
+            stock: 5,
+            categoria: "Hogar y Muebles",
+            estado: "Nuevo",
+            descripcion: "Silla ergonómica para largas sesiones de juego.",
+            imagen: "../img/agregar.gif"
+        },
+        {
+            nombre: "Set de Ollas",
+            precio: 799.00,
+            stock: 8,
+            categoria: "Electrodomésticos",
+            estado: "Nuevo",
+            descripcion: "Juego de ollas de acero inoxidable.",
+            imagen: "../img/agregar.gif"
+        }
+    ];
+
+    function mostrarProductos(filtro = "") {
+        let contenedor = document.getElementById('productosTienda');
+        contenedor.innerHTML = "";
+        let filtrados = productos.filter(prod =>
+            prod.nombre.toLowerCase().includes(filtro.toLowerCase()) ||
+            prod.categoria.toLowerCase().includes(filtro.toLowerCase())
+        );
+        if (filtrados.length === 0) {
+            contenedor.innerHTML = `
+                <div class="col-12">
+                    <div class="alert alert-warning text-center p-5 rounded shadow-sm">
+                        <i class="fa fa-box-open fa-2x mb-2 text-primary"></i>
+                        <h4 class="mb-2">No se encontraron productos</h4>
+                        <p>Intenta con otra búsqueda o revisa más tarde.</p>
+                    </div>
+                </div>
+            `;
+        } else {
+            filtrados.forEach(function(prod) {
+                contenedor.innerHTML += `
+                <div class="col-lg-3 col-md-4 col-sm-6 pb-4">
+                    <div class="card card-producto h-100 shadow-sm border-0">
+                        <img src="${prod.imagen}" class="preview-img mt-3" alt="${prod.nombre}">
+                        <div class="card-body text-center">
+                            <h6 class="card-title text-truncate mb-1">${prod.nombre}</h6>
+                            <div class="mb-2">
+                                <span class="badge badge-categoria">${prod.categoria}</span>
+                                <span class="badge bg-info text-white">${prod.estado}</span>
+                                <span class="badge bg-primary text-white">Stock: ${prod.stock}</span>
+                            </div>
+                            <h5 class="text-success mb-0">$${prod.precio}</h5>
+                            <p class="small mt-2 text-muted">${prod.descripcion}</p>
+                        </div>
+                        <div class="card-footer bg-white border-0 text-center">
+                            <button class="btn btn-outline-primary btn-sm me-2" onclick="agregarAlCarrito('${prod.nombre}')">
+                                <i class="fa fa-shopping-cart"></i> Agregar al carrito
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm">
+                                <i class="fa fa-eye"></i> Ver detalles
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+        }
+    }
+
+    // Simulación de agregar al carrito
+    function agregarAlCarrito(nombre) {
+        alert('Producto "' + nombre + '" agregado al carrito (simulado).');
+        // Aquí puedes agregar la lógica real para agregar al carrito
+    }
+
+    document.getElementById('formBuscar').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const filtro = document.getElementById('busquedaProducto').value;
+        mostrarProductos(filtro);
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        mostrarProductos();
+    });
+    </script>
+</body>
+
+</html>

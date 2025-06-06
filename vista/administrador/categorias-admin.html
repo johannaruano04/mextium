@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Administrar Categorías | Mextium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f5f5f5; }
+        .admin-header {
+            background: linear-gradient(90deg, #ffc107 0%, #007bff 100%);
+            color: #fff;
+            padding: 30px 0 20px 0;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .admin-header .logo-mex {
+            color: #007bff;
+            background: #212529;
+            padding: 0 10px;
+            border-radius: 5px 0 0 5px;
+        }
+        .admin-header .logo-tium {
+            color: #212529;
+            background: #ffc107;
+            padding: 0 10px;
+            border-radius: 0 5px 5px 0;
+            margin-left: -5px;
+        }
+        .table thead th {
+            background: #007bff;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <span class="h1 text-uppercase logo-mex">Mex</span>
+        <span class="h1 text-uppercase logo-tium">tium</span>
+        <div class="mt-2">Administrar Categorías</div>
+    </div>
+    <div class="container mb-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="mb-0">Categorías de Productos</h3>
+            <a href="panel.html" class="btn btn-secondary">Volver al Panel</a>
+        </div>
+        <div class="mb-4">
+            <form class="row g-2 align-items-center" id="form-agregar-categoria">
+                <div class="col">
+                    <input type="text" class="form-control" id="nueva-categoria" placeholder="Nueva categoría" required>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-success">Agregar</button>
+                </div>
+            </form>
+        </div>
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre de la Categoría</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-categorias">
+                <!-- Las categorías se cargarán aquí con JS -->
+            </tbody>
+        </table>
+    </div>
+    <footer class="text-center py-3 mt-4" style="background:#ffc107; color:#212529;">
+        &copy; 2025 Mextium. Todos los derechos reservados.
+    </footer>
+    <script>
+        // Ejemplo simple de manejo de categorías en localStorage
+        let categorias = JSON.parse(localStorage.getItem('categorias')) || ["Electrónica", "Ropa", "Hogar"];
+
+        function renderCategorias() {
+            const tbody = document.getElementById('tabla-categorias');
+            tbody.innerHTML = "";
+            categorias.forEach((cat, idx) => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${idx + 1}</td>
+                        <td>${cat}</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger btn-borrar" data-idx="${idx}">Eliminar</button>
+                        </td>
+                    </tr>
+                `;
+            });
+            // Botón eliminar
+            document.querySelectorAll('.btn-borrar').forEach(btn => {
+                btn.onclick = function() {
+                    const idx = this.dataset.idx;
+                    if (confirm("¿Seguro que deseas eliminar esta categoría?")) {
+                        categorias.splice(idx, 1);
+                        localStorage.setItem('categorias', JSON.stringify(categorias));
+                        renderCategorias();
+                    }
+                }
+            });
+        }
+
+        document.getElementById('form-agregar-categoria').onsubmit = function(e) {
+            e.preventDefault();
+            const nueva = document.getElementById('nueva-categoria').value.trim();
+            if (nueva && !categorias.includes(nueva)) {
+                categorias.push(nueva);
+                localStorage.setItem('categorias', JSON.stringify(categorias));
+                renderCategorias();
+                this.reset();
+            } else {
+                alert("La categoría ya existe o el nombre está vacío.");
+            }
+        };
+
+        renderCategorias();
+    </script>
+</body>
+</html>
